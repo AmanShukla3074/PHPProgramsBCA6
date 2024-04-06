@@ -1,0 +1,32 @@
+<html>
+<head>
+<title>u3p1</title>
+<script>
+/*
+1.Create a form containing one input field (Name). When the user enters his/her name
+and as any key is released , the form should display a welcome message for the user.
+Implement using AJAX.
+2.Repeat the above question to demonstrate the use of keydown and keypress events.
+*/
+const func=()=>
+{
+	let val=document.getElementById("v1").value;
+	let xr=new XMLHttpRequest();
+	xr.open('get','u3p2.php?q='+val,true);
+	xr.onreadystatechange = () => {
+		if(xr.readyState==4 )
+		{
+			document.getElementById("d1").innerHTML=xr.responseText;
+		}
+	}
+	xr.send();
+}
+</script>
+</head>
+<body>
+<form method="post" action="u2p7.php">
+<input type="text" id="v1" onkeydown="func();"><br>
+</form>
+<div id="d1"></div>
+</body>
+</html>
