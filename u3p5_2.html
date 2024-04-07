@@ -1,0 +1,44 @@
+
+<html>
+<head>
+<title>u3p5</title>
+<script>
+/*5.Write a program to demostrate the example of sending items selected from radio and
+checkbox to server asynchronously.*/
+const func = () => {
+    let val = document.getElementsByName("v");
+	console.log(val)
+	let prod="";
+	
+    let xr = new XMLHttpRequest();
+    
+	for(let i=0;i<val.length;i++)
+	{
+		if(val[i].checked)
+			prod+=val[i].value+" ";
+	}
+		console.log(prod)
+    xr.open('GET', 'u3p5_2.php?q=' + prod, true);
+    
+    xr.onreadystatechange = () => {
+        if (xr.readyState == 4) {
+            document.getElementById("d1").innerHTML = xr.responseText;
+        }
+    }
+    
+    xr.send();
+}
+
+</script>
+</head>
+<body>
+    <input type="checkbox" value="v1" name="v">v1<br>
+    <input type="checkbox" value="v2" name="v">v2<br>
+    <input type="checkbox" value="v3" name="v">v3<br>
+    <input type="checkbox" value="v4" name="v">v4<br>
+	
+    <input type="submit" onclick="func();">
+	
+<div id="d1"></div>
+</body>
+</html>
