@@ -1,0 +1,35 @@
+<html>
+<head>
+
+<script>
+const func = () =>
+{
+	let val1=document.getElementById("sid").value;
+	let val2=document.getElementById("sn").value;
+	let val3=document.getElementById("sm").value;
+	let val4=document.getElementById("sc").value;
+	
+	let xr=new XMLHttpRequest();
+	xr.open('get','u3p8.php?v1='+val1+'&v2='+val2+'&v3='+val3+'&v4='+val4,true);
+	
+	xr.onreadystatechange=()=>{
+		if(xr.readyState==4){
+		document.getElementById("d1").innerHTML=xr.responseText;
+		}
+	}
+	
+	xr.send();
+}
+</script>
+
+</head>
+
+<body>
+std id <input type="text" id="sid"><br>
+std name <input type="text" id="sn"><br>
+std mobile <input type="text" id="sm"><br>
+std con <input type="text" id="sc"><br>
+<input type="submit" onclick="func();"><br>
+<div id="d1"></div>
+</body>
+</html>

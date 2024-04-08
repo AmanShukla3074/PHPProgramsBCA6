@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>u3p7</title>
+<script>
+const func = () =>
+{
+/*
+
+7.Write a programto validate and Email ID using regular expression and by using DOM.
+
+*/
+let val=document.getElementById("v1").value;
+const a=/^[A-Za-z0-9_]+\@+[a-zA-Z]+\.[a-z]{2,3}$/;
+
+if(a.test(val))
+	document.getElementById("d1").innerHTML="Valid";
+else
+	document.getElementById("d1").innerHTML="Invalid";
+}
+</script>
+</head>
+
+<body>
+
+email:<input type="text" id="v1">
+<input type="submit" onclick="func();">
+<div id="d1"></div>
+</body>
+</html>

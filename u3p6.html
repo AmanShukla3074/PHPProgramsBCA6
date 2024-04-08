@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>u3p6</title>
+<script>
+
+const func = () =>
+{
+	/*
+		6.Write a program to validate a blank field and also validate the length of the data
+		entered(i.e. minimum lenght of 5).
+	*/
+	let xr=new XMLHttpRequest();
+	let val=document.getElementById("str1").value;
+	xr.open('get','u3p6.php?q='+val,true);
+	xr.onreadystatechange=()=>{
+	if(xr.readyState==4)
+		{
+			document.getElementById("d1").innerHTML = xr.responseText;
+		}
+	}
+	xr.send();
+}
+
+</script>
+</head>
+<body>
+
+str:<input type="text" id="str1">
+<input type="submit" onclick="func();">
+<div id="d1"></div>
+
+</body>
+</html>
